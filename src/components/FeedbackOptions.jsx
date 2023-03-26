@@ -1,20 +1,25 @@
+import { Component } from 'react';
 import { ButtonsContainer, Button } from './Feedback.styled';
-export const FeedbackOptions = ({
-  handleIncrementGood,
-  handleIncrementNeutral,
-  handleIncrementBad,
-}) => {
-  return (
-    <ButtonsContainer>
-      <Button type="button" onClick={handleIncrementGood}>
-        Good
-      </Button>
-      <Button type="button" onClick={handleIncrementNeutral}>
-        Neutral
-      </Button>
-      <Button type="button" onClick={handleIncrementBad}>
-        Bad
-      </Button>
-    </ButtonsContainer>
-  );
-};
+import shortid from 'shortid';
+
+class FeedbackOptions extends Component {
+  render() {
+    const keys = Object.keys(this.props.options);
+    return (
+      <ButtonsContainer>
+        {keys.map(key => (
+          <Button
+            key={shortid.generate()}
+            value={key}
+            onClick={e => this.props.onLeaveFeedback(e)}
+            type="button"
+          >
+            {key}
+          </Button>
+        ))}
+      </ButtonsContainer>
+    );
+  }
+}
+
+export default FeedbackOptions;

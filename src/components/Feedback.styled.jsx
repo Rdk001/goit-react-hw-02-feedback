@@ -1,9 +1,14 @@
 import styled from '@emotion/styled';
 
 const Container = styled.div`
-  width: 1600px;
+  background-color: #f2f2f2;
+  width: 300px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 50px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #010101;
 `;
 
 const StatisticsContainer = styled.div`
